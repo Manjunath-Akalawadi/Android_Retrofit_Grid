@@ -10,16 +10,15 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -83,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(new MyAdapter(getApplicationContext(),itemsList));
 
-
-
             }
 
             @Override
             public void onFailure(Call<JsonArray> call, Throwable t) {
+
+                Toast.makeText(MainActivity.this,"Error",Toast.LENGTH_LONG).show();
 
             }
         });
